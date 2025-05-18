@@ -80,13 +80,16 @@ body {
     padding: 2rem 0;
 }
 
-/* Блок с текстом */
+/* Блок с текстом и изображением */
 .unified-block {
     background-color: var(--darker-bg);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.5rem;
+    display: flex;
+    gap: 2rem;
     margin: 1.5rem auto;
+    align-items: center;
 }
 
 .text-content {
@@ -96,6 +99,18 @@ body {
 .text-content p {
     margin-bottom: 1rem;
     line-height: 1.8;
+}
+
+.image-content {
+    flex: 1;
+}
+
+.content-image {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 
 /* Контейнер для двух блоков */
@@ -223,5 +238,9 @@ body {
     .nav-btn {
         width: 100%;
         text-align: center;
+    }
+
+    .content-image {
+        max-height: 300px;
     }
 }

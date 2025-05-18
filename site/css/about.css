@@ -102,10 +102,13 @@ body {
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.5rem;
+    display: flex;
+    gap: 2rem;
     margin-top: 1.5rem;
 }
 
 .text-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -113,6 +116,22 @@ body {
 
 .problem-text {
     margin-bottom: 1.5rem;
+}
+
+.image-content {
+    flex: 0 0 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.problem-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Статистика */
@@ -288,6 +307,13 @@ body {
     text-align: center;
 }
 
+.details-image {
+    max-width: 100%;
+    margin-top: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
 /* Подвал */
 .footer {
     background-color: var(--darker-bg);
@@ -307,6 +333,12 @@ body {
 @media (max-width: 768px) {
     .unified-block {
         flex-direction: column;
+    }
+
+    .image-content {
+        max-width: 100%;
+        order: -1;
+        margin-bottom: 1.5rem;
     }
 
     .stats-grid {
