@@ -4,33 +4,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Не бойся | Главная</title>
-    <link rel="stylesheet" href="css/main.css">
+    <title>О проекте | Не бойся</title>
+    <link rel="stylesheet" href="css/about.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap"
         rel="stylesheet">
 </head>
-
-<nav class="navigation">
-    <a href="index.html" class="nav-btn active">Главная</a>
-    <a href="about.html" class="nav-btn">О проекте</a>
-    <a href="team.html" class="nav-btn">Участники</a>
-    <a href="journal.html" class="nav-btn">Журнал</a>
-    <a href="resources.html" class="nav-btn">Ресурсы</a>
-</nav>
 
 <body>
     <div class="dark-theme">
         <header class="header">
             <div class="header-content">
-                <h1 class="main-title">Не бойся</h1>
-                <p class="main-subtitle">Визуальная новелла о преодолении страхов</p>
+                <h1 class="main-title">О проекте</h1>
+                <p class="main-subtitle">Визуальная новелла «Не бойся»</p>
             </div>
         </header>
 
-
+        <nav class="navigation">
+            <a href="index.html" class="nav-btn">Главная</a>
+            <a href="about.html" class="nav-btn active">О проекте</a>
+            <a href="team.html" class="nav-btn">Участники</a>
+            <a href="journal.html" class="nav-btn">Журнал</a>
+            <a href="resources.html" class="nav-btn">Ресурсы</a>
+        </nav>
 
         <main class="main-content">
-            <!-- Контентные блоки будут здесь -->
+            <section class="problem-section">
+                <div class="section-header">
+                    <h2 class="section-title">Проблематика проекта</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="unified-block">
+                    <div class="text-content">
+                        <p class="problem-text">Наш проект посвящен проблеме тревожности и страхов, связанных с
+                            поступлением в вуз и обучением. Мы исследуем эмоциональные трудности, с которыми
+                            сталкиваются абитуриенты и студенты первых курсов.</p>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">78%</div>
+                                <div class="stat-label">студентов испытывают стресс</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">62%</div>
+                                <div class="stat-label">боятся не справиться</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">45%</div>
+                                <div class="stat-label">имеют проблемы со сном</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Новый блок - Текущий прогресс -->
+            <section class="progress-section">
+                <div class="section-header">
+                    <h2 class="section-title">Текущий прогресс</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="progress-block">
+                    <div class="progress-item">
+                        <h3>Исследование завершено</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <p>Проведен полный анализ страхов студентов и существующих решений</p>
+                    </div>
+                    <div class="progress-item">
+                        <h3>Прототип сценария</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                        <p>Разработаны основные сюжетные ветки и диалоги</p>
+                    </div>
+                    <div class="progress-item">
+                        <h3>Визуальное оформление</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%"></div>
+                        </div>
+                        <p>Созданы основные персонажи и часть интерфейсов</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="goals-section">
+                <div class="section-header">
+                    <h2 class="section-title">Цели и задачи</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="goals-grid">
+                    <div class="goal-card">
+                        <div class="goal-number">1</div>
+                        <h3>Исследование страхов</h3>
+                        <p>Анализ основных страхов студентов</p>
+                    </div>
+                    <div class="goal-card">
+                        <div class="goal-number">2</div>
+                        <h3>Анализ рынка</h3>
+                        <p>Изучение существующих новелл</p>
+                    </div>
+                    <div class="goal-card">
+                        <div class="goal-number">3</div>
+                        <h3>Сценарий</h3>
+                        <p>Разработка диалоговых веток</p>
+                    </div>
+                    <div class="goal-card">
+                        <div class="goal-number">4</div>
+                        <h3>Визуал</h3>
+                        <p>Создание оформления</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Новый блок - Технологии -->
+            <section class="tech-section">
+                <div class="section-header">
+                    <h2 class="section-title">Используемые технологии</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">🖥️</div>
+                        <h3>Ren'Py</h3>
+                        <p>Движок для визуальных новелл</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🐍</div>
+                        <h3>Python</h3>
+                        <p>Логика и аналитика</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🎨</div>
+                        <h3>Photoshop</h3>
+                        <p>Создание графики</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">📊</div>
+                        <h3>Figma</h3>
+                        <p>Прототипирование интерфейсов</p>
+                    </div>
+                </div>
+            </section>
+
         </main>
 
         <footer class="footer">

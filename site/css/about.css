@@ -75,107 +75,217 @@ body {
     background-color: rgba(106, 90, 205, 0.2);
 }
 
-/* Основной контент */
-.main-content {
-    padding: 2rem 0;
-}
-
-/* Блок с текстом */
-.unified-block {
-    background-color: var(--darker-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin: 1.5rem auto;
-}
-
-.text-content {
-    flex: 1;
-}
-
-.text-content p {
-    margin-bottom: 1rem;
-    line-height: 1.8;
-}
-
-/* Контейнер для двух блоков */
-.dual-blocks-container {
-    display: flex;
-    gap: 2rem;
-    margin: 2rem auto;
-}
-
 /* Стили для заголовков секций */
 .section-header {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .section-title {
     font-family: 'Press Start 2P', cursive;
     font-size: 1.5rem;
     color: var(--accent);
-    margin: 0 0 0.5rem;
-    text-shadow: 0 0 8px rgba(106, 90, 205, 0.3);
+    margin-bottom: 0.5rem;
 }
 
 .title-underline {
-    height: 2px;
-    width: 80px;
+    height: 3px;
+    width: 60px;
     background: var(--accent);
     margin: 0 auto;
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
-/* Блоки контента */
-.features-block,
-.status-block {
+/* Основные блоки контента */
+.unified-block {
     background-color: var(--darker-bg);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.5rem;
-    flex: 1;
+    margin-top: 1.5rem;
 }
 
-.features-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
+.text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.problem-text {
+    margin-bottom: 1.5rem;
+}
+
+/* Статистика */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.stat-card {
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 6px;
+    padding: 0.8rem;
     text-align: center;
+    border-top: 2px solid var(--accent);
+    transition: transform 0.3s;
 }
 
-.features-list li {
-    margin-bottom: 1rem;
-    position: relative;
-    padding-left: 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.6;
+.stat-card:hover {
+    transform: translateY(-3px);
 }
 
-.features-list li::before {
-    content: "•";
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
     color: var(--accent);
-    position: absolute;
-    left: 0;
+    margin-bottom: 0.3rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Цели и задачи */
+.goals-section {
+    margin-top: 2rem;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.goal-card {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.goal-card:hover {
+    transform: translateY(-5px);
+}
+
+.goal-number {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--accent);
     font-size: 1.2rem;
+    margin-bottom: 0.3rem;
 }
 
-.status-block {
-    text-align: center;
+.goal-card h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    margin: 0.3rem 0;
+    color: var(--text);
 }
 
-.status-block p {
-    margin-bottom: 1rem;
-    line-height: 1.8;
+.goal-card p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
 }
 
-.status-block a {
+/* Прогресс разработки */
+.progress-section {
+    margin: 3rem 0;
+}
+
+.progress-block {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.progress-item {
+    margin-bottom: 1.5rem;
+}
+
+.progress-item:last-child {
+    margin-bottom: 0;
+}
+
+.progress-item h3 {
+    margin-bottom: 0.5rem;
     color: var(--accent);
-    text-decoration: none;
 }
 
-.status-block a:hover {
-    text-decoration: underline;
+.progress-bar {
+    height: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--accent);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+/* Технологии */
+.tech-section {
+    margin: 3rem 0;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tech-card {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+}
+
+.tech-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.tech-card h3 {
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.tech-card p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Детали проекта */
+.details-section {
+    margin-top: 3rem;
+}
+
+.details-content {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
 }
 
 /* Подвал */
@@ -199,20 +309,8 @@ body {
         flex-direction: column;
     }
 
-    .dual-blocks-container {
-        flex-direction: column;
-    }
-
-    .main-title {
-        font-size: 1.5rem;
-    }
-
-    .section-title {
-        font-size: 1.2rem;
-    }
-
-    .features-list li {
-        font-size: 1rem;
+    .stats-grid {
+        grid-template-columns: 1fr;
     }
 
     .navigation {
@@ -223,5 +321,28 @@ body {
     .nav-btn {
         width: 100%;
         text-align: center;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .goal-card h3,
+    .tech-card h3 {
+        font-size: 0.9rem;
     }
 }
