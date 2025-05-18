@@ -1,0 +1,361 @@
+/* Базовые настройки */
+:root {
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --accent: #6a5acd;
+    --accent-light: #9370db;
+    --text: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border: #333;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    color: var(--text);
+    background-color: var(--dark-bg);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.dark-theme {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка */
+.header {
+    background-color: var(--darker-bg);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.main-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin: 0.5rem 0;
+    text-shadow: 0 0 10px rgba(106, 90, 205, 0.5);
+}
+
+.main-subtitle {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Навигация */
+.navigation {
+    display: flex;
+    justify-content: center;
+    background-color: var(--darker-bg);
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.nav-btn {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    transition: all 0.3s;
+}
+
+.nav-btn.active {
+    background-color: var(--accent);
+    color: white;
+}
+
+.nav-btn:hover:not(.active) {
+    background-color: rgba(106, 90, 205, 0.2);
+}
+
+/* Основной контент */
+.main-content {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+/* Стили для заголовков секций */
+.section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+}
+
+.title-underline {
+    height: 3px;
+    width: 60px;
+    background: var(--accent);
+    margin: 0 auto;
+    border-radius: 3px;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Руководство проекта */
+.leadership-section {
+    margin-bottom: 3rem;
+}
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.leader-card {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.leader-card:hover {
+    transform: translateY(-5px);
+}
+
+.leader-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 3px solid var(--accent);
+}
+
+.leader-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leader-info {
+    flex: 1;
+}
+
+.leader-role {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--accent);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.leader-name {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: var(--text);
+}
+
+.leader-link {
+    color: var(--accent-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.leader-link:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.leader-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Фильтры команды */
+.team-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 0.5rem 1.2rem;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
+.filter-btn:hover {
+    background-color: rgba(106, 90, 205, 0.2);
+}
+
+/* Сетка участников */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.member-card {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.member-avatar {
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.member-name {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+    color: var(--text);
+}
+
+.member-role {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Благодарности */
+.contributors-section {
+    margin-top: 3rem;
+}
+
+.contributors-list {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contributors-list p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.contributors-list p:last-child {
+    margin-bottom: 0;
+}
+
+/* Подвал */
+.footer {
+    background-color: var(--darker-bg);
+    padding: 1.5rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+}
+
+.copyright {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .leader-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .leader-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .member-card {
+        padding: 1rem;
+    }
+
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

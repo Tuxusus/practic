@@ -4,39 +4,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Не бойся | Главная</title>
-    <link rel="stylesheet" href="css/main.css">
+    <title>Команда | Не бойся</title>
+    <link rel="stylesheet" href="css/team.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap"
         rel="stylesheet">
 </head>
-
-<nav class="navigation">
-    <a href="index.html" class="nav-btn active">Главная</a>
-    <a href="about.html" class="nav-btn">О проекте</a>
-    <a href="team.html" class="nav-btn">Участники</a>
-    <a href="journal.html" class="nav-btn">Журнал</a>
-    <a href="resources.html" class="nav-btn">Ресурсы</a>
-</nav>
 
 <body>
     <div class="dark-theme">
         <header class="header">
             <div class="header-content">
-                <h1 class="main-title">Не бойся</h1>
-                <p class="main-subtitle">Визуальная новелла о преодолении страхов</p>
+                <h1 class="main-title">Участники</h1>
+                <p class="main-subtitle">Создатели визуальной новеллы «Не бойся»</p>
             </div>
         </header>
 
-
+        <nav class="navigation">
+            <a href="index.html" class="nav-btn">Главная</a>
+            <a href="about.html" class="nav-btn">О проекте</a>
+            <a href="team.html" class="nav-btn active">Участники</a>
+            <a href="journal.html" class="nav-btn">Журнал</a>
+            <a href="resources.html" class="nav-btn">Ресурсы</a>
+        </nav>
 
         <main class="main-content">
-            <!-- Контентные блоки будут здесь -->
+            <section class="leadership-section">
+                <div class="section-header">
+                    <h2 class="section-title">Руководство проекта</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="leadership-grid">
+                    <div class="leader-card">
+                        <div class="leader-avatar">
+                            <img src="images/leonis-avatar.jpg" alt="Лейонис Аанрис ван Хааске" class="leader-photo">
+                        </div>
+                        <div class="leader-info">
+                            <div class="leader-role">Куратор</div>
+                            <h3 class="leader-name">
+                                <a href="https://vnhsk.ru/" target="_blank" rel="noopener noreferrer"
+                                    class="leader-link">
+                                    Лейонис Аанрис ван Хааске
+                                </a>
+                            </h3>
+                            <p class="leader-desc">Антрополог, клинический психолог и эксперт-патопсихолог</p>
+                        </div>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-avatar">
+                            <img src="images/mospolytech-logo.jpg" alt="Московский Политех" class="leader-photo">
+                        </div>
+                        <div class="leader-info">
+                            <div class="leader-role">Заказчик</div>
+                            <h3 class="leader-name">Центр развития мультимедиа</h3>
+                            <p class="leader-desc">Московский политехнический университет</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="team-section">
+                <div class="section-header">
+                    <h2 class="section-title">Команда разработчиков</h2>
+                    <div class="title-underline"></div>
+                    <p class="section-subtitle">Студенты Московского Политеха, участвующие в создании проекта</p>
+                </div>
+
+                <div class="team-filters">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="design">Дизайн</button>
+                    <button class="filter-btn" data-filter="programming">Программирование</button>
+                    <button class="filter-btn" data-filter="writing">Сценаристы</button>
+                </div>
+
+                <div class="team-grid">
+                    <!-- Группа 1 -->
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">АМ</div>
+                        <h3 class="member-name">Айдемирова Милана Рустамовна</h3>
+                        <p class="member-role">Художник персонажей</p>
+                    </div>
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">ИА</div>
+                        <h3 class="member-name">Аникин Иван Александрович</h3>
+                        <p class="member-role">Программист</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">АД</div>
+                        <h3 class="member-name">Бикеева Анастасия Дмитриевна</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">КМ</div>
+                        <h3 class="member-name">Блиновская Ксения Максимовна</h3>
+                        <p class="member-role">UI/UX дизайнер</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">АД</div>
+                        <h3 class="member-name">Веденцова Арина Дмитриевна</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">АР</div>
+                        <h3 class="member-name">Велиева Амина Ровшановна</h3>
+                        <p class="member-role">Художник фонов</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">ВМ</div>
+                        <h3 class="member-name">Вепринцева Вероника Максимовна</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">АА</div>
+                        <h3 class="member-name">Воробьева Александра Александровна</h3>
+                        <p class="member-role">Тестировщик</p>
+                    </div>
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">АА</div>
+                        <h3 class="member-name">Воронина Анна Андреевна</h3>
+                        <p class="member-role">Иллюстратор</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">АС</div>
+                        <h3 class="member-name">Денежкина Алиса Сергеевна</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+
+                    <!-- Группа 2 -->
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">АА</div>
+                        <h3 class="member-name">Дмытрив Алиса Андреевна</h3>
+                        <p class="member-role">Графический дизайнер</p>
+                    </div>
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">АЕ</div>
+                        <h3 class="member-name">Доронина Анастасия Евгеньевна</h3>
+                        <p class="member-role">Программист</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">ДА</div>
+                        <h3 class="member-name">Дроздовская Дарья Александровна</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">ИК</div>
+                        <h3 class="member-name">Зусманович Игорь Константинович</h3>
+                        <p class="member-role">Программист</p>
+                    </div>
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">ПР</div>
+                        <h3 class="member-name">Иконникова Полина Романовна</h3>
+                        <p class="member-role">UI дизайнер</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">ВЮ</div>
+                        <h3 class="member-name">Итченко Вероника Юрьевна</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">АА</div>
+                        <h3 class="member-name">Кадиков Артемий Алексеевич</h3>
+                        <p class="member-role">Программист</p>
+                    </div>
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">ДВ</div>
+                        <h3 class="member-name">Канунникова Дарья Валерьевна</h3>
+                        <p class="member-role">Художник</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">АГ</div>
+                        <h3 class="member-name">Костецкая Анастасия Геннадиевна</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">АА</div>
+                        <h3 class="member-name">Котова Анна Александровна</h3>
+                        <p class="member-role">Тестировщик</p>
+                    </div>
+
+                    <!-- Группа 3 -->
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">ЕА</div>
+                        <h3 class="member-name">Леднёв Евгений Александрович</h3>
+                        <p class="member-role">Программист</p>
+                    </div>
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">АД</div>
+                        <h3 class="member-name">Миронов Александр Дмитриевич</h3>
+                        <p class="member-role">3D-художник</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">АО</div>
+                        <h3 class="member-name">Мороз Анна Олеговна</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">ИП</div>
+                        <h3 class="member-name">Сабиров Илья Павлович</h3>
+                        <p class="member-role">Программист</p>
+                    </div>
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">ПА</div>
+                        <h3 class="member-name">Спиридонова Полина Алексеевна</h3>
+                        <p class="member-role">Иллюстратор</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">АМ</div>
+                        <h3 class="member-name">Торгашина Алина Михайловна</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">КА</div>
+                        <h3 class="member-name">Хохлова Кристина Андреевна</h3>
+                        <p class="member-role">Графический дизайнер</p>
+                    </div>
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">ДД</div>
+                        <h3 class="member-name">Чувилкин Даниил Денисович</h3>
+                        <p class="member-role">Программист</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">ЕВ</div>
+                        <h3 class="member-name">Шоронова Екатерина Вячеславовна</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">ЮЮ</div>
+                        <h3 class="member-name">Юрасовская Юлия Юрьевна</h3>
+                        <p class="member-role">UI/UX дизайнер</p>
+                    </div>
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">ОА</div>
+                        <h3 class="member-name">Янченко Ольга Александровна</h3>
+                        <p class="member-role">Тестировщик</p>
+                    </div>
+
+                    <!-- Добавленные участники -->
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">КА</div>
+                        <h3 class="member-name">Клочкова Алёна Андреевна</h3>
+                        <p class="member-role">Программист</p>
+                    </div>
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">КА</div>
+                        <h3 class="member-name">Комарова Алиса Алексеевна</h3>
+                        <p class="member-role">Художник интерфейсов</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">ИА</div>
+                        <h3 class="member-name">Конарев Илья Александрович</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+                    <div class="member-card" data-category="design">
+                        <div class="member-avatar">ВМ</div>
+                        <h3 class="member-name">Кондратьева Вера Максимовна</h3>
+                        <p class="member-role">Художник фонов</p>
+                    </div>
+                    <div class="member-card" data-category="writing">
+                        <div class="member-avatar">ЕА</div>
+                        <h3 class="member-name">Петракова Елена Александровна</h3>
+                        <p class="member-role">Сценарист</p>
+                    </div>
+                    <div class="member-card" data-category="programming">
+                        <div class="member-avatar">МА</div>
+                        <h3 class="member-name">Ролин Максим Алексеевич</h3>
+                        <p class="member-role">Тестировщик</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contributors-section">
+                <div class="section-header">
+                    <h2 class="section-title">Особая благодарность</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="contributors-list">
+                    <p>Преподавателям Московского Политеха за методическую поддержку</p>
+                    <p>Психологам-консультантам за профессиональные рекомендации</p>
+                    <p>Всем студентам, участвовавшим в тестировании проекта</p>
+                </div>
+            </section>
         </main>
 
         <footer class="footer">
             <p class="copyright">© 2025 Московский Политех, Визуальная новелла «Не бойся»</p>
         </footer>
     </div>
+
+    <script>
+        // Фильтрация команды по ролям
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.member-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
