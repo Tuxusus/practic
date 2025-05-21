@@ -37,311 +37,133 @@ http.createServer((req, res) => {
 
 ## Модификация сайта
 
-В данной части туториала мы создадим базовый сервер, который будет работать со статическим сайтом, написанным в рамках задания по проектной практике. Эта часть будет в себе содержать этапы модификации и с подробным пояснением. Для начала диограмма классов нашего сайта с наполнением:
-
- 
-Наполнение `index.html`:
-```
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Добро пожаловать!</h1>
-        <nav>
-            <a href="index.html" class="active">Главная</a>
-            <a href="page2.html">Страница 2</a>
-        </nav>
-    </header>
-    
-    <main>
-        <section>
-            <h2>О нас</h2>
-            <p>Это главная страница нашего простого сайта.</p>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2023 Простой сайт</p>
-    </footer>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
-```
-Наполнение `page2.html`:
-```
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вторая страница</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Вторая страница</h1>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="page2.html" class="active">Страница 2</a>
-        </nav>
-    </header>
-    
-    <main>
-        <section>
-            <h2>Контент второй страницы</h2>
-            <p>Здесь находится содержимое второй страницы.</p>
-            <button id="alertBtn">Показать сообщение</button>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2023 Простой сайт</p>
-    </footer>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
-```
-Наполнение `style.css`:
-```
-/* Общие стили */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
-header {
-    background: #35424a;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-}
-
-nav a.active {
-    background: #e8491d;
-    border-radius: 5px;
-}
-
-main {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #35424a;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-button {
-    background: #35424a;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background: #e8491d;
-}
-```
-Наполнение `script.js`:
-```
-// Функция для главной страницы
-if (document.getElementById('changeColorBtn')) {
-    const changeColorBtn = document.getElementById('changeColorBtn');
-    let colors = ['#f4f4f4', '#e6f7ff', '#ffe6e6', '#e6ffe6'];
-    let currentColor = 0;
-    
-    changeColorBtn.addEventListener('click', function() {
-        document.body.style.backgroundColor = colors[currentColor];
-        currentColor = (currentColor + 1) % colors.length;
-    });
-}
-
-// Функция для второй страницы
-if (document.getElementById('alertBtn')) {
-    const alertBtn = document.getElementById('alertBtn');
-    
-    alertBtn.addEventListener('click', function() {
-        alert('Привет со второй страницы!');
-    });
-}
-```
-После воссоздания проекта открываем его в **Visual Studio Code** и переходим в папку `server.js`. Она сейчас пустая, давайте напишим в ней код для запуска простого сервера:
+В данной части туториала мы создадим базовый сервер, который будет работать со статическим сайтом, написанным в рамках задания по проектной практике. Эта часть будет в себе содержать этапы модификации и с подробным пояснением. Структуру сайта и содержимое файлов можете посмотреть в папке `site`. Для начала давайте импортируем необходимые встроенные модули Node.js:
 ```
 const http = require('http');
-const PORT = 3000;
-
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello, World!');
-});
-
-server.listen(PORT, () => {
-  console.log(`Сервер запущен на http://localhost:${PORT}/`);
-});
-```
-Пока что наш веб-сервер не работает с другими файлами, а просто выводит "*Hello, World!*". Чтобы это исправить, давайте добавим обработку статических файлов(**HTML**, **CSS**, **JS**) и проверку на то, существует ли файл:
-```
-const http = require('http');
-const PORT = 3000;
-
 const fs = require('fs');
 const path = require('path');
-const url = require('url');
-
+```
+Теперь определяем порт сервера и MIME-типы для правильной обработки файлов:
+```
+const PORT = 3000;
 const MIME_TYPES = {
   '.html': 'text/html',
   '.css': 'text/css',
-  '.js': 'application/javascript'
+  '.js': 'text/javascript',
+  '.png': 'image/png',
+  '.jpg': 'image/jpg',
+  '.jpeg': 'image/jpeg',
+  '.gif': 'image/gif',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon'
 };
-
+```
+Создаем сервер и определяем обработчик запросов:
+```
 const server = http.createServer((req, res) => {
-  const parsedUrl = url.parse(req.url);
-  let filePath = path.join(__dirname, parsedUrl.pathname === '/' ? 'index.html' : parsedUrl.pathname);
+  // Декодируем URL и удаляем параметры запроса
+  let filePath = decodeURI(req.url.split('?')[0]);
+  
+  // Если URL заканчивается на / или это корень, используем index.html
+  if (filePath.endsWith('/') || filePath === '/') {
+    filePath = '/index.html';
+  }
 
-  // Проверка существования файла
-  fs.access(filePath, fs.constants.F_OK, (err) => {
+  // Если в URL нет расширения, добавляем .html
+  if (!path.extname(filePath)) {
+    filePath += '.html';
+  }
+
+  // Формируем полный путь к файлу
+  const fullPath = path.join(__dirname, filePath);
+```
+Читаем файл из файловой системы и отправляем ответ:
+```
+  fs.readFile(fullPath, (err, data) => {
     if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/html' });
-      return res.end('<h1>404 Not Found</h1>');
+      // Если файл не найден, отправляем 404
+      res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+      return res.end('<h1>404 - Страница не найдена</h1>');
     }
 
-    // Определение MIME-типа
-    const ext = path.extname(filePath);
-    const contentType = MIME_TYPES[ext] || 'text/plain';
+    // Определяем Content-Type по расширению файла
+    const extname = path.extname(filePath).toLowerCase();
+    const contentType = MIME_TYPES[extname] || 'application/octet-stream';
 
-    // Чтение и отправка файла
-    fs.readFile(filePath, (err, content) => {
-      if (err) {
-        res.writeHead(500);
-        return res.end('Server Error');
-      }
-
-      res.writeHead(200, { 'Content-Type': contentType });
-      res.end(content);
-    });
+    // Отправляем успешный ответ с содержимым файла
+    res.writeHead(200, { 'Content-Type': contentType });
+    res.end(data);
   });
 });
-
+```
+Запускаем сервер на указанном порту:
+```
 server.listen(PORT, () => {
   console.log(`Сервер запущен на http://localhost:${PORT}/`);
 });
 ```
-Теперь наш сервер работает со статическими файлами проекта `my-site`. Давайте добавим возможность при запуске сервера открывать интересующую нас страницу сайта. Внесём следующие изменения:
+Добавляем обработчик для корректного завершения работы сервера:
 ```
-server.listen(PORT, () => {
-  console.log(`Сервер запущен на http://localhost:${PORT}/`);
-  console.log('Доступные страницы:');
-  console.log(`- Главная: http://localhost:${PORT}/`);
-  console.log(`- Страница 2: http://localhost:${PORT}/page2.html`);
-});
-```
-Когда вы запустите сервер повторно в консоли появится список с доступными страницами и ссылками на них. Теперь мы можем открывать наш сайт не только с главной страницы, но и со второй. Осталось сделать завершение работы нашего сайта более прозрачным и выводить сообщение в консоль:
-```
-// Обработка завершения
 process.on('SIGINT', () => {
-  console.log('\nСервер останавливается...');
-  server.close(() => {
-    console.log('Сервер успешно остановлен.');
-    process.exit(0);  // явно указываем код выхода 0 (успех)
-  });
-
-  // Принудительное завершение, если сервер не остановился за 5 секунд
-  setTimeout(() => {
-    console.error('Принудительное завершение...');
-    process.exit(1);
-  }, 5000);
+  console.log('\nОстановка сервера...');
+  server.close(() => process.exit());
 });
 ```
-Наш базовый сервер готов. Итоговый код:
+Собрав все вместе, получаем следующий код:
 ```
 const http = require('http');
-const PORT = 3000;
-
 const fs = require('fs');
 const path = require('path');
-const url = require('url');
 
+const PORT = 3000;
 const MIME_TYPES = {
   '.html': 'text/html',
   '.css': 'text/css',
-  '.js': 'application/javascript'
+  '.js': 'text/javascript',
+  '.png': 'image/png',
+  '.jpg': 'image/jpg',
+  '.jpeg': 'image/jpeg',
+  '.gif': 'image/gif',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon'
 };
 
 const server = http.createServer((req, res) => {
-  const parsedUrl = url.parse(req.url);
-  let filePath = path.join(__dirname, parsedUrl.pathname === '/' ? 'index.html' : parsedUrl.pathname);
+  let filePath = decodeURI(req.url.split('?')[0]);
+  
+  if (filePath.endsWith('/') || filePath === '/') {
+    filePath = '/index.html';
+  }
 
-  fs.access(filePath, fs.constants.F_OK, (err) => {
+  if (!path.extname(filePath)) {
+    filePath += '.html';
+  }
+
+  const fullPath = path.join(__dirname, filePath);
+
+  fs.readFile(fullPath, (err, data) => {
     if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/html' });
-      return res.end('<h1>404 Not Found</h1>');
+      res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+      return res.end('<h1>404 - Страница не найдена</h1>');
     }
 
-    const ext = path.extname(filePath);
-    const contentType = MIME_TYPES[ext] || 'text/plain';
+    const extname = path.extname(filePath).toLowerCase();
+    const contentType = MIME_TYPES[extname] || 'application/octet-stream';
 
-    fs.readFile(filePath, (err, content) => {
-      if (err) {
-        res.writeHead(500);
-        return res.end('Server Error');
-      }
-
-      res.writeHead(200, { 'Content-Type': contentType });
-      res.end(content);
-    });
+    res.writeHead(200, { 'Content-Type': contentType });
+    res.end(data);
   });
 });
 
 server.listen(PORT, () => {
   console.log(`Сервер запущен на http://localhost:${PORT}/`);
-  console.log('Доступные страницы:');
-  console.log(`- Главная: http://localhost:${PORT}/`);
-  console.log(`- Страница 2: http://localhost:${PORT}/page2.html`);
 });
 
-// Обработка завершения
 process.on('SIGINT', () => {
-  console.log('\nСервер останавливается...');
-  server.close(() => {
-    console.log('Сервер успешно остановлен.');
-    process.exit(0);  // явно указываем код выхода 0 (успех)
-  });
-
-  // Принудительное завершение, если сервер не остановился за 5 секунд
-  setTimeout(() => {
-    console.error('Принудительное завершение...');
-    process.exit(1);
-  }, 5000);
+  console.log('\nОстановка сервера...');
+  server.close(() => process.exit());
 });
 ```
-
 ## Заключение 
 
 В этом руководстве мы рассмотрели создание простого и базового HTTP-сервера на Node.js, а также научились обработке различных маршрутов и работе со статическими файлами.
